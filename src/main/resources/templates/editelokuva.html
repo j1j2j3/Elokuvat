@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Muokkaa</h2>
+	
+<div>
+<form th:object="${elokuva}" th:action="@{editelokuva}" action="#" method="post">
+
+<input type="hidden" id="id" th:field="*{id}"/>
+			
+<label for="nimi">Nimi</label>
+<input type="text" id="nimi" th:field="*{nimi}"/>
+<div style="clear: both; display: block; height: 10px;"></div>
+			
+<label for="julkaisuvuosi">Julkaisuvuosi</label>
+<input type="text" id="julkaisuvuosi" th:field="*{julkaisuvuosi}"/>
+<div style="clear: both; display: block; height: 10px;"></div>
+			
+<label for="ohjaaja">Ohjaaja</label>
+<input type="text" id="ohjaaja" th:field="*{ohjaaja}"/>
+<div style="clear: both; display: block; height: 10px;"></div>
+			
+<label for="kesto">Kesto</label>
+<input type="number" id="kesto" th:field="*{kesto}"/>
+<div style="clear: both; display: block; height: 10px;"></div>
+
+<label for="genrelist">Genre</label>
+<select id="genrelist" th:field="*{genre}" class="form-control">
+<option th:each="genre: ${genres}" 
+th:value="${genre.genreid}" 
+th:text="${genre.name}"></option>
+</select>
+<div style="clear: both; display: block; height: 10px;"></div>
+			
+<input type="submit" value="Muokkaa"></input>
+			
+</form>
+</div>
+
+</body>
+</html>
